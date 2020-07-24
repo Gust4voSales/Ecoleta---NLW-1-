@@ -1,11 +1,10 @@
 import express from 'express';
+import router from './routes';
 
 const app = express();
 
-app.get('/users', (req, res) => {
-    console.log('USERS');
+app.use(express.json()); // Enable the server to understand requests with json 
 
-    res.json({ message: 'OK!@' });
-});
+app.use(router);
 
 app.listen(3333);

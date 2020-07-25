@@ -9,6 +9,7 @@ const itemsController = new ItemsController();
 
 
 router.get('/items', itemsController.index);
+router.get('/points/:id', pointsController.show);
 router.post('/points', pointsController.create);
 
 

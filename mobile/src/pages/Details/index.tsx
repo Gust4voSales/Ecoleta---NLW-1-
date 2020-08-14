@@ -1,15 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, TouchableOpacity, Image, Text, StatusBar, } from 'react-native';
 import { Feather, FontAwesome } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
+import api from '../../services/api';
+
+
+interface Params {
+  pointId: number;
+}
+
+interface Data {
+  point: {
+    image: string;
+    name: string;
+    email: string;
+    whatsapp: string;
+    city: string;
+    uf: string;
+  },
+  items: {
+    title: string;
+  }[];
+}
 
 const Details = () => {
     const { goBack } = useNavigation();
+    const route = useRoute();
+    const [data, setData] = useState<Data>({} as Data);
+
+    const routeParams = route.params as Params;
+
+    useEffect(() => {
+      api.get(`points/${routeParams.pointId}`).then(res => {
+        setData(res.data);
+      });
+    }, []);
 
 
     function handleNavigateBack() {
-        goBack();
+      goBack();
+    }
+
+    if (!data.point) {
+      return null;
     }
 
     return(
@@ -21,15 +55,17 @@ const Details = () => {
 
             <Image 
                 style={styles.pointImage}
-                source={{ uri: "https://images.unsplash.com/photo-1506617564039-2f3b650b7010?ixlib=rb-1.2.1&auto=format&fit=crop&w=460&q=60" }} 
+                source={{ uri: data.point.image }} 
             />
 
-            <Text style={styles.pointName}>Mercado Baratissimo</Text>
-            <Text style={styles.pointItems}>Lâmpadas, Óleo de Cozinha</Text>
+            <Text style={styles.pointName}>{data.point.name}</Text>
+            <Text style={styles.pointItems}>
+              {data.items.map(item => item.title).join(', ')}
+            </Text>
 
             <View style={styles.address}>
                 <Text style={styles.addressTitle}>Endereço</Text>
-                <Text style={styles.addressContent}>Belo Jardim, PE</Text>
+                <Text style={styles.addressContent}>{data.point.city}, {data.point.uf}</Text>
             </View>
         </View>
         

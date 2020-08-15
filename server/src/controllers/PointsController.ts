@@ -18,7 +18,14 @@ class PointsController {
             .distinct()
             .select('points.*');
 
-        return res.json(points);
+        const serializedPoints = points.map((point) => {
+            return {
+                ...point,    
+                image_url: `uploads/${point.image}`,
+            }
+        })
+        
+        return res.json(serializedPoints);
     }
 
     async show(req: Request, res: Response) {
@@ -30,6 +37,11 @@ class PointsController {
             return res.status(404).json({ error: "Point not found" });
         }
 
+        const serializedPoint =  {
+            ...point,    
+            image_url: `uploads/${point.image}`,
+        }
+
         // Get all items and join each one that matches point_items' item_id 
         // where the point_items' point is equal to the one passed in the parameter
         const items = await knex('items')
@@ -38,7 +50,7 @@ class PointsController {
             .select('items.title');
 
 
-        return res.json({ point, items });
+        return res.json({ serializedPoint, items });
     }
 
     async create(req: Request, res: Response) {

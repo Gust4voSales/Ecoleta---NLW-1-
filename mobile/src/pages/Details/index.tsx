@@ -67,7 +67,7 @@ const Details = () => {
 
             <Image 
                 style={styles.pointImage}
-                source={{ uri: data.point.image_url }} 
+                source={{ uri: api.defaults.baseURL + data.point.image_url }} 
             />
 
             <Text style={styles.pointName}>{data.point.name}</Text>

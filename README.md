@@ -4,6 +4,11 @@
 
 <p>Ecoleta is an app that helps you find the nearest recycling points. It's an open source project developed during the first Next Level Week edition by @Rocketseat</p>
 
+<p align="center">
+    <a href="README-pt.md">README em Português</a>
+ </p>
+
+
 <h3>WEB screenshots</h3>
 <div align="center">
   <img src=".github/Homepage-web.png" alt="logo" height="425">

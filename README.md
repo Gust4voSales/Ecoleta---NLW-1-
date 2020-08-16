@@ -48,6 +48,7 @@ First of all, clone this repo with ````git clone https://github.com/Gust4voSales
 2. Then ````npm run knex:migrate```` to run the database migrations and create the tables
 3. Followed by ````npm run knex:seed```` to seed the database with the default items
 4. Finally ````npm run dev```` to run the api
+5. Optionally, <div align="center">[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Ecoleta%20-%20NLW%2301&uri=.github%2FInsomnia_2020-08-16.json)</div>
 
 * #### Running the web project
 1. Run ````yarn```` inside web folder to install all dependecies 

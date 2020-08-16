@@ -48,6 +48,7 @@ Primeiramente, clone o repositório com ````git clone https://github.com/Gust4vo
 2. Então ````npm run knex:migrate```` para rodar as migrations do banco de dados e criar as tabelas
 3. Seguido de ````npm run knex:seed```` para realizar o seed do banco com os itens padrão
 4. Finalmente ````npm run dev```` para rodar a API
+5. Opcionalmente, <br/> <div align="center">[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Ecoleta%20-%20NLW%2301&uri=https%3A%2F%2Fraw.githubusercontent.com%2FGust4voSales%2FEcoleta-NLW-1%2Fmaster%2F.github%2FInsomnia_2020-08-16.json)</div>
 
 * #### Iniciando o projeto web
 1. Rode ````yarn```` dentro da pasta web para instalar todas as dependências

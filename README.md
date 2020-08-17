@@ -12,8 +12,8 @@
 <h3>WEB screenshots</h3>
 <div align="center">
   <img src=".github/Homepage-web.png" alt="logo" height="425">
-  <img src=".github/CreatePoint-1-web.PNG" alt="logo" height="425">
-  <img src=".github/CreatePoint-2-web.PNG" alt="logo" height="425">
+  <img src=".github/CreatePoint-1-web.PNG" alt="logo" height="380">
+  <img src=".github/CreatePoint-2-web.PNG" alt="logo" height="380">
 </div>
 
 <h3>MOBILE screenshots</h3>
